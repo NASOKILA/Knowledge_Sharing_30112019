@@ -19,7 +19,6 @@
 .tweetForm {
   background-color: teal;
   padding: 1rem;
-  display: inline;
 }
 
 body {
