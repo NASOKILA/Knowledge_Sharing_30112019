@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import "./Tweet.css";
 
-export default function Tweet({ id, name, content }) {
+export default function Tweet({ id, name, content, removeTweet }) {
   const [likes, setLikes] = useState(0);
 
   const like = () => {
-    //Todo
+    setLikes(Math.min(likes + 1, 10));
   };
 
   const dislike = () => {
+    setLikes(Math.max(likes - 1, 0));
     //Todo
+  };
+
+  const removeCurrentTweet = () => {
+    removeTweet(id);
   };
 
   return (
@@ -18,11 +23,11 @@ export default function Tweet({ id, name, content }) {
         {id} : {name}
       </h3>
       <p>{content}</p>
-      <button>X</button>
+      <button onClick={removeCurrentTweet}>X</button>
       <br />
-      <button>Like</button>
+      <button onClick={like}>Like</button>
       <br />
-      <button>Dislike</button>
+      <button onClick={dislike}>Dislike</button>
       <br />
       <b>{likes}</b>
       <br />

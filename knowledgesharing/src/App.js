@@ -14,34 +14,34 @@ class App extends React.Component {
 
   addTweet = newTweet => {
     console.log(newTweet);
-    //Todo
-
-    //this.setState(...) //rerenders the component
+    let tweets = [...this.state.tweets];
+    tweets.push(newTweet);
+    this.setState({ tweets }); //rerenders the component
   };
 
   removeTweet = id => {
-    console.log(id);
-    //Todo
+    let tweets = [...this.state.tweets.filter(tw => tw.id != id)];
+    this.setState({ tweets }); //rerenders the component
   };
 
-  // //Updating
-  // componentWillUpdate() {
-  //   console.log("componentWillUpdate");
-  // }
+  //Updating
+  componentWillUpdate() {
+    console.log("componentWillUpdate");
+  }
 
-  // componentDidUpdate() {
-  //   console.log("componentDidUpdate");
-  // }
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
 
-  // //Unmounting
-  // componentWillUnmount() {
-  //   console.log("componentWillUnmount");
-  // }
+  //Unmounting
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
+  }
 
-  // //Mounting
-  // componentWillMount() {
-  //   console.log("componentWillMount");
-  // }
+  //Mounting
+  componentWillMount() {
+    console.log("componentWillMount");
+  }
 
   componentDidMount() {
     //API calls
@@ -65,7 +65,10 @@ class App extends React.Component {
           {this.state.tweets}
         </TweetList>
         <br />
-        <TweetForm addTweet={this.addTweet} />
+        <TweetForm
+          tweetsCount={this.state.tweets.length}
+          addTweet={this.addTweet}
+        />
       </div>
     );
   }
