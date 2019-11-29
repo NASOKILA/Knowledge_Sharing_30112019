@@ -1,5 +1,5 @@
 .tweet {
-  height: 200px;
+  height: 300px;
   width: 200px;
   background: wheat;
   border-radius: 39px;
