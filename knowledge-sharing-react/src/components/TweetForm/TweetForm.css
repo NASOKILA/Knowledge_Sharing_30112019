@@ -2,3 +2,7 @@
   background-color: teal;
   padding: 1rem;
 }
+
+.tweetForm input {
+  margin: 0rem 1rem;
+}
